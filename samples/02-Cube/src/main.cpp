@@ -254,9 +254,9 @@ void OnUpdate( UpdateEventArgs& e )
     // Update the view matrix.
     XMVECTOR eyePosition = XMVectorSet( 0, 0, -10, 1 );
     XMVECTOR focusPoint  = XMVectorSet( 0, 0, 0, 1 );
-    float          x           = static_cast<float>( rand() ) / static_cast<float>( RAND_MAX ) * magnitude;
-    float          y           = static_cast<float>( rand() ) / static_cast<float>( RAND_MAX ) * magnitude;
-    float          z           = static_cast<float>( rand() ) / static_cast<float>( RAND_MAX ) * magnitude;
+    float x = magnitude * rand() / RAND_MAX;
+    float y = magnitude * rand() / RAND_MAX;
+    float z = magnitude * rand() / RAND_MAX;
     eyePosition += XMVectorSet( x, y, z, 0 );
     focusPoint += XMVectorSet( x, y, z, 0 );
 
@@ -310,6 +310,7 @@ void OnUpdate( UpdateEventArgs& e )
     pSwapChain->Present();
 }
 
+//Эффект тряски
 void Shake() {
     std::thread thrQuit( [&]() {
         magnitude = 1;
