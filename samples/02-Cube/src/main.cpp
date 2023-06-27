@@ -351,8 +351,6 @@ void OnMouseWheel( MouseWheelEventArgs& e )
 {
     fieldOfView -= e.WheelDelta;
     fieldOfView = std::clamp( fieldOfView, 12.0f, 90.0f );
-
-    logger->info( "Field of View: {}", fieldOfView );
 }
 
 void OnResized( ResizeEventArgs& e )
